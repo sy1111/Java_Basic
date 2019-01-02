@@ -14,6 +14,8 @@ public class StringDemo {
 		char ch = message.charAt(length - 1);
 		if (ch == '.' || ch == ',') {
 			System.out.println("Correct");
+		} else if (ch == '_' || ch == '-') { 
+			System.out.println("Maybe");
 		} else {
 			System.out.println("Wrong");
 		}

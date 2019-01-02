@@ -17,7 +17,6 @@ public class ConditionDemo2 {
 			System.out.println("Wrong!");
 			
 		}
-		
 
 	}
 

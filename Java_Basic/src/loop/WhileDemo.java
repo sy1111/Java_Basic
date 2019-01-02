@@ -18,6 +18,8 @@ public class WhileDemo {
 		
 		// 스트링이 숫자인지?
 		int length = message.length();
+		
+		// "123" , "12a" , "rose"
 		i = 0;
 		boolean isDigit = true;
 		while (i < length) {
