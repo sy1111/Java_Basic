@@ -26,6 +26,7 @@ public class PersonalInfo {
 		num = scan.nextInt();
 		
 		String[] names = new String[num];
+		//String[] songs = {"abc", "twinkle", "heart"};
 		
 		int i = 0;
 		while (i < num) {
@@ -34,7 +35,17 @@ public class PersonalInfo {
 			i = i + 1;
 		}
 		
-		System.out.println(Arrays.toString(names));
+		// 홀수번째 인덱스(순서)
+		i = 0;
+		while (i < num) {
+			if (i % 2 == 0) {
+				System.out.println("[" + i + "] - " + names[i]);
+			} 
+			
+			i++;
+		}
+		
+		//System.out.println(Arrays.toString(names));
 		
 		
 		
