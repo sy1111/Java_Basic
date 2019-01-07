@@ -21,10 +21,13 @@ public class CodingEx01 {
 		 * int num = calcPageNum(0, 1); System.out.println(num);
 		 */
 		
-		int[] m = {-1, 1, 5, -5, 10, 7, -3, 8 };
+		int[] m = {1, 0, -5};
 		
+		long time1 = System.currentTimeMillis();
 		int[] result = specialSort(m);
+		long time2 = System.currentTimeMillis();
 		System.out.println(Arrays.toString(result));
+		System.out.println("걸린시간: " + (time2 - time1));
 	}
 	
 	/*
@@ -125,9 +128,63 @@ public class CodingEx01 {
 	 * 입력값 중 음수가 좌측으로 양수는 우측으로 
 	 * 원래 음수와 양수의 순서는 그대로 유지
 	 * 
+	 * 로직.
+	 *  0. 입력 배열의 모든 요소를 돌면서, 음수의 갯수를 센다.
+	 *  1. 음수 / 양수 배열을 만든다.
+	 *  2. 입력 배열을 모두 돌면서, 음의 수가 나오면 음의 배열로,
+	 *     양의 수가 나오면 양의 배열로 복사
+	 *  3. 결과 배열을 만든다(입력배열의 크기)
+	 *  4. 음의 배열의 요소모두를 결과배열에 복사
+	 *  5. 양의 배열의 요소 모두를 결과 배열에 복사   
 	 * 
 	 */
 	static int[] specialSort(int[] numbers) {
-		return null;
+		int numOfNegatives = 0;
+		int numOfPositives = 0;
+		
+		if (numbers == null) {
+			return null;
+		}
+		
+		for (int i = 0; i < numbers.length; i++) {
+			if (numbers[i] < 0) {
+				numOfNegatives++;
+			}
+		}
+		
+		numOfPositives = numbers.length - numOfNegatives;
+		
+		if (numOfNegatives == 0 || numOfPositives == 0) {
+			return numbers;
+		}
+		
+		int[] negatives = new int[numOfNegatives];
+		int[] positives = new int[numOfPositives];
+		
+		int negIndex = 0;
+		int posIndex = 0;
+		for (int i = 0; i < numbers.length; i++) {
+			if (numbers[i] < 0) {
+				negatives[negIndex] = numbers[i];
+				negIndex++;
+ 			} else {
+ 				positives[posIndex] = numbers[i];
+ 				posIndex++;
+ 			}
+		}
+		
+		int resultArray[] = new int[numbers.length];
+		int resultIndex = 0;
+		for (int i = 0; i < negatives.length; i++) {
+			resultArray[resultIndex] = negatives[i];
+			resultIndex++;
+		}
+		
+		for (int i = 0; i < positives.length; i++) {
+			resultArray[resultIndex] = positives[i];
+			resultIndex++;
+		}
+		
+		return resultArray;
 	}
 }
