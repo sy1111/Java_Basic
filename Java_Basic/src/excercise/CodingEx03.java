@@ -62,6 +62,22 @@ public class CodingEx03 {
 	 * 
 	 */
 	public static void countNumberOccurrence(int limit) {
+		int[] countNumbers = new int[10];
+
+		int i = 1;
+		while (i <= limit) {
+			String str = String.valueOf(i);
+			for (int j = 0; j < str.length(); j++) {
+				int index = str.charAt(j) - 48;
+				countNumbers[index]++;
+			}
+			
+			i++;
+		}
+		
+		for (int j = 0; j < countNumbers.length; j++) {
+			System.out.println(j + ": " + countNumbers[j]);
+		}
 		
 	}
 }
