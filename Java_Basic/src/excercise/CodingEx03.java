@@ -3,15 +3,16 @@ package excercise;
 public class CodingEx03 {
 
 	public static void main(String[] args) {
-		String sample = "018234567";
+		/*
+		 * String sample = "0182345679";
+		 * 
+		 * boolean isValid = checkNumbers(sample);
+		 * 
+		 * if (isValid) { System.out.println("Correct!"); } else {
+		 * System.out.println("Wrong!"); }
+		 */
 		
-		boolean isValid = checkNumbers(sample);
-
-		if (isValid) {
-			System.out.println("Correct!");
-		} else {
-			System.out.println("Wrong!");
-		}
+		countNumberOccurrence(1000);
 	}
 
 	/**
@@ -25,63 +26,14 @@ public class CodingEx03 {
 		boolean[] checks = new boolean[10];
 		
 		for (int i = 0; i < str.length(); i++) {
-			if (str.charAt(i) == '0') {
-				if (checks[i] == true) {
+			char ch = str.charAt(i);
+			
+			if (ch >= '0' && ch <= '9') {
+				int index = ch - 48;
+				if (checks[index]) {
 					return false;
 				}
-				checks[0] = true;
-			} else if (str.charAt(i) == '1') {
-				if (checks[i] == true) {
-					return false;
-				}
-				checks[1] = true;
-			} else if (str.charAt(i) == '2') {
-				if (checks[i] == true) {
-					return false;
-				}
-				checks[2] = true;
-			}
-			else if (str.charAt(i) == '3') {
-				if (checks[i] == true) {
-					return false;
-				}
-				checks[3] = true;
-			}
-			else if (str.charAt(i) == '4') {
-				if (checks[i] == true) {
-					return false;
-				}
-				checks[4] = true;
-			}
-			else if (str.charAt(i) == '5') {
-				if (checks[i] == true) {
-					return false;
-				}
-				checks[5] = true;
-			}
-			else if (str.charAt(i) == '6') {
-				if (checks[i] == true) {
-					return false;
-				}
-				checks[6] = true;
-			}
-			else if (str.charAt(i) == '7') {
-				if (checks[i] == true) {
-					return false;
-				}
-				checks[7] = true;
-			}
-			else if (str.charAt(i) == '8') {
-				if (checks[i] == true) {
-					return false;
-				}
-				checks[8] = true;
-			}
-			else if (str.charAt(i) == '9') {
-				if (checks[i] == true) {
-					return false;
-				}
-				checks[9] = true;
+				checks[index] = true;
 			}
 		}
 		
@@ -92,6 +44,25 @@ public class CodingEx03 {
 		}
 		
 		return true;
+	}
+	
+	
+	/**
+	 * 1 ~ n 사이의 숫자 갯수 구하기
+	 * 
+	 * 입력: 정수
+	 * 리턴: void
+	 * 
+	 * 콘솔에 결과를 프린트
+	 * 
+	 * int[] countNum = new int[10];
+	 * 1부터 limit까지 반복
+	 *   1 --> "1", 111 --> "111" String.valueOf(10); "10"
+	 * 
+	 * 
+	 */
+	public static void countNumberOccurrence(int limit) {
+		
 	}
 }
 

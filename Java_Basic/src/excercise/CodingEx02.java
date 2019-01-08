@@ -6,52 +6,52 @@ import java.util.regex.Pattern;
 public class CodingEx02 {
 
 	public static void main(String[] args) {
-		String m = "numOfPieX123";
+		String m = "NumOfPieP123";	// num_of_pie_x_1_2_3
 
 		// String result = ConvertPotholeCase(m);
 		System.out.println(ConvertPotholeCase(m));
 	}
 
 	/**
+	 * 입력: String
+	 * 리턴: String(potholecase )
 	 * camelCase --> PotholeCase
 	 * 
 	 * ex) "numOfPies" --> "num_of_pies"
+	 * 
+	 * 
+	 * 
 	 */
 	public static String ConvertPotholeCase(String input) {
 
-		// 1. 대문자를 소문자로 바꾸고 앞 글자에 '_' 추가
-		int inputSize = input.length();
-
-		//System.out.println(inputSize);
+		String result = "";
+		
+		int startIndex = 0;
 		for (int i = 0; i < input.length(); i++) {
-			//System.out.println(input.charAt(i));
-			if (Character.isUpperCase(input.charAt(i))) {
-				// 'c' --> "c"
-				String str = String.valueOf(input.charAt(i));
-				input = input.replace(str, "_" + str.toLowerCase());
-				//System.out.println("string size: " + str + " " + i + " " + input.length());
-				i++;
-			}
-
-		}
-
-		inputSize = input.length();
-		for (int i = 0; i < input.length(); i++) {
-			if (input.charAt(i) >= '0' && input.charAt(i) <= '9') { // '1' --> "1"
-				//System.out.println(input.charAt(i));
-				String str = String.valueOf(input.charAt(i));
-				input = input.replace(str, "_" + str);
-				i++;
+			
+			char ch = input.charAt(i);
+			if (ch >= 'A' && ch <= 'Z')	{ //대문자
+				if (i == 0) {
+					result = result + (char)(ch + 32);
+				} else {
+					result = result + input.substring(startIndex, i) + "_" + (char)(ch + 32);
+				}
+				
+				startIndex = i + 1;
+				
+			} else if (ch >= '0' && ch <= '9') { // 숫자
+				result = result + input.substring(startIndex, i) + "_" + ch;
+				startIndex = i + 1;
 			}
 		}
-
-		/*
-		 * // 2. 숫자 앞에 '_' 추가 Pattern p = Pattern.compile("\\d"); Matcher m =
-		 * p.matcher(input);
-		 * 
-		 * while (m.find()) input = input.replace(m.group(0), "_" + m.group(0));
-		 */
-
-		return input;
+		
+		return result;
 	}
 }
+
+
+
+
+
+
+
