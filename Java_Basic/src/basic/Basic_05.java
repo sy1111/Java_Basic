@@ -35,16 +35,29 @@ public class Basic_05 {
 		classNames[2] = "영어";
 		
 		// 성적추가
-		addScore("홍길동", 80, 50, 100);
+		int hongId = addScore("홍길동", 80, 50, 100);
 		addScore("문재인", 80, 50, 100);
 		addScore("이명박", 80, 70, 90);
 		addScore("박근혜", 30, 0, 0);
 		
-		//deleteStudent(5);
 		reportScore();
 		
-		int[] hongScore = findScore("홍길동");
-		System.out.println(Arrays.toString(hongScore));
+		if (deleteStudent(2)) {
+			System.out.println("2번학생 삭제 성공");
+		} else {
+			System.out.println("2번학생 삭제 실패");
+		}
+		
+		addScore("안철수", 10, 10, 20);
+		
+		modifyScore("안철수", -1, 100, -1);
+		
+		reportScore();
+		
+		/*
+		 * String name = new String("이명박"); int[] hongScore = findScore(name);
+		 * System.out.println(Arrays.toString(hongScore));
+		 */
 	}
 	
 	/**
@@ -82,13 +95,21 @@ public class Basic_05 {
 	
 	/**
 	 * 학생 삭제 기능
-	 * @param id
-	 * @param names
-	 * @param scores
-	 * @return
+	 * 
 	 */
 	public static boolean deleteStudent(int id) {
-		return false;
+		if (studentNames[id] == null) {
+			return false;
+		}
+		
+		studentNames[id] = null;
+		studentScores[id][0] = 0;
+		studentScores[id][1] = 0;
+		studentScores[id][2] = 0;
+		
+		numOfStudent--;
+		
+		return true;
 	}
 
 	/**
@@ -131,9 +152,45 @@ public class Basic_05 {
 	 *  학생이름으로 성적검색
 	 */
 	public static int[] findScore(String name) {
-		return null;
+		int studentIndex = -1;
+		for (int i = 0; i < studentNames.length; i++) {
+			if (studentNames[i].equals(name)) {
+				studentIndex = i;
+				break;
+			}
+		}
+		
+		if (studentIndex == -1) { // 발견을 못한 경우
+			return null;
+		}
+		
+		return studentScores[studentIndex];
+	}
+	
+	public static int[] findScore(int id) {
+		if (studentNames[id] == null) {
+			return null;
+		}
+		
+		return studentScores[id];
+	}
+	
+	public static boolean modifyScore(String name, int kScore, 
+			int eScore, int mScore) {
+		return false;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
