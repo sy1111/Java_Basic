@@ -51,6 +51,7 @@ public class Basic_05 {
 		addScore("안철수", 10, 10, 20);
 		
 		modifyScore("안철수", -1, 100, -1);
+		modifyScore("박근혜", -1, 50, 10);
 		
 		reportScore();
 		
@@ -131,7 +132,8 @@ public class Basic_05 {
 	public static void reportScore() {
 		System.out.println("------------------------------");
 		System.out.println(" 이름\t" + classNames[0] + "\t" +
-					classNames[1] + "\t" + classNames[2]);
+					classNames[1] + "\t" + classNames[2] +
+					"\t" + "평균");
 		System.out.println("------------------------------");
 		
 		for (int i = 0; i < maxStudentNum; i++) {
@@ -139,7 +141,10 @@ public class Basic_05 {
 				System.out.print(studentNames[i] + "\t");
 				System.out.print(studentScores[i][0] + "\t");
 				System.out.print(studentScores[i][1] + "\t");
-				System.out.println(studentScores[i][2]);
+				System.out.print(studentScores[i][2] + "\t");
+				int sum = studentScores[i][0] + studentScores[i][1] +
+						studentScores[i][2];
+				System.out.printf("%.2f\n", (double)sum / classNum);
 			}
 		}
 		
@@ -177,6 +182,24 @@ public class Basic_05 {
 	
 	public static boolean modifyScore(String name, int kScore, 
 			int eScore, int mScore) {
+		for (int i = 0; i < studentNames.length; i++) {
+			if (studentNames[i].equals(name)) {
+				if (kScore >= 0) {
+					studentScores[i][0] = kScore;
+				}
+				
+				if (eScore >= 0) {
+					studentScores[i][1] = eScore;
+				}
+				
+				if (mScore >= 0) {
+					studentScores[i][2] = mScore;
+				}
+				
+				return true;
+			}
+		}
+		
 		return false;
 	}
 }
