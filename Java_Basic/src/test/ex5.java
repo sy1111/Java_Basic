@@ -8,6 +8,7 @@ public class ex5 {
 		int num2 = numbers(a);
 		System.out.println("ÇÕ : " + num2);
 
+		//student.Student stu = new student.Student();
 	}
 
 	/*

@@ -149,8 +149,22 @@ public class Basic_05 {
 		}
 		
 		System.out.println("------------------------------");
+		System.out.println("\t\t" + getMeanScore(1) + "\t" + 
+					getMeanScore(2) + "\t" + getMeanScore(3));
 	}
 	
+	/*
+	 * classIndex:
+	 * 		1 --> 국어평균
+	 * 		2 --> 영어 평균
+	 * 		3 --> 수학평균
+	 * 리턴: 각 과목의 평균
+	 */
+	private static double getMeanScore(int classIndex) {
+		// TODO Auto-generated method stub
+		return 0.0;
+	}
+
 	/**
 	 * 검색 기능
 	 * 
