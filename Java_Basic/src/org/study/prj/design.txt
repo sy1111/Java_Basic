@@ -1,0 +1,17 @@
+
+School
+  
+
+Student
+ - id
+ - name
+ - address
+ - [class_id]
+
+Class
+ - class_id
+ - name
+ - teacher
+ - [student id: student score]
+
+Teacher
