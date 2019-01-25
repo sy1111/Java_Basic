@@ -1,17 +1,35 @@
 
-School
-  
+College
+  [class]
 
 Student
- - id
- - name
+ - s_id
+ - s_name
  - address
- - [class_id]
+ - [c_id]	// 여러 수업을 수강
 
 Class
- - class_id
- - name
- - teacher
- - [student id: student score]
+ - c_id
+ - c_name
+ - t_id
+ - [s_id: student score]	// 여러 학생의 성적
 
 Teacher
+ - t_id
+ - t_name
+ - address
+ 
+  ㅇ 학생 등록
+  ㅇ 선생님 등록
+  ㅇ class 등록
+  ㅇ 학생이 수강신청
+    - class를 찾을수 있어야 함.
+  ㅇ 성적 조회
+    - 각 학생이 조회
+    - 선생님이 조회
+  
+  
+  
+  
+  
+  

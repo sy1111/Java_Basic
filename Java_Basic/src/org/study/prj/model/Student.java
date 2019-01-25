@@ -1,5 +1,88 @@
 package org.study.prj.model;
 
-public class Student {
+import java.util.Set;
 
+public class Student {
+	// 학생아이디: 
+	// unique한 아이디 발급
+	String sId;
+	String sName;
+	String address;
+	Set<String> regClasses;
+	
+	// 생성자
+	Student() {
+		sId = generateSId();
+	}
+	
+	Student(String name) {
+		sId = generateSId();
+	}
+	
+	// 유니크한 학생아이디 발급
+	private String generateSId() {
+		return null;
+	}
+
+	public String getsName() {
+		return sName;
+	}
+
+	public void setsName(String sName) {
+		this.sName = sName;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public Set<String> getRegClasses() {
+		return regClasses;
+	}
+
+	public void setRegClasses(Set<String> regClasses) {
+		this.regClasses = regClasses;
+	}
+
+	public String getsId() {
+		return sId;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [sId=" + sId + ", sName=" + sName + ", address=" + address + "]";
+	}
+
+	// sId의 동일여부에 따른 구현
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((sId == null) ? 0 : sId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		if (sId == null) {
+			if (other.sId != null)
+				return false;
+		} else if (!sId.equals(other.sId))
+			return false;
+		return true;
+	}
+	
+	// 메소드
+	
 }
