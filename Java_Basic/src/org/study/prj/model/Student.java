@@ -5,23 +5,30 @@ import java.util.Set;
 public class Student {
 	// 학생아이디: 
 	// unique한 아이디 발급
+	private static int uId = 1;
+	
 	String sId;
 	String sName;
 	String address;
 	Set<String> regClasses;
 	
 	// 생성자
-	Student() {
+	public Student() {
 		sId = generateSId();
 	}
 	
-	Student(String name) {
+	public Student(String name) {
 		sId = generateSId();
+		sName = name;
 	}
 	
 	// 유니크한 학생아이디 발급
+	// "SUID_XXXXX";
 	private String generateSId() {
-		return null;
+		String sid = "SUID_" + 
+				String.format("%05d", uId);
+		uId++;
+		return sid;
 	}
 
 	public String getsName() {
@@ -84,5 +91,13 @@ public class Student {
 	}
 	
 	// 메소드
+	public static boolean checkUid() {
+		if (uId >= 90000) {
+			return true;
+		}
+		
+		return false;
+	}
+	
 	
 }
