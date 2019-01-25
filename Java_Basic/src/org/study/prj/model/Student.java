@@ -1,5 +1,6 @@
 package org.study.prj.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Student {
@@ -15,11 +16,13 @@ public class Student {
 	// 생성자
 	public Student() {
 		sId = generateSId();
+		regClasses = new HashSet<> ();
 	}
 	
 	public Student(String name) {
 		sId = generateSId();
 		sName = name;
+		regClasses = new HashSet<> ();
 	}
 	
 	// 유니크한 학생아이디 발급
@@ -99,5 +102,17 @@ public class Student {
 		return false;
 	}
 	
+	public boolean registerClass(String cId) {
+		return regClasses.add(cId);
+	}
+	
 	
 }
+
+
+
+
+
+
+
+

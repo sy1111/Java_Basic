@@ -1,7 +1,9 @@
 
 College
   [class]
-
+  [student]
+  [teacher]	
+  
 Student
  - s_id
  - s_name
