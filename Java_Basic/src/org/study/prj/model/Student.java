@@ -3,14 +3,12 @@ package org.study.prj.model;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Student {
+public class Student extends SchoolPerson {
 	// 학생아이디: 
 	// unique한 아이디 발급
 	private static int uId = 1;
 	
 	String sId;
-	String sName;
-	String address;
 	Set<String> regClasses;
 	
 	// 생성자
@@ -21,7 +19,7 @@ public class Student {
 	
 	public Student(String name) {
 		sId = generateSId();
-		sName = name;
+		this.name = name;
 		regClasses = new HashSet<> ();
 	}
 	
@@ -32,22 +30,6 @@ public class Student {
 				String.format("%05d", uId);
 		uId++;
 		return sid;
-	}
-
-	public String getsName() {
-		return sName;
-	}
-
-	public void setsName(String sName) {
-		this.sName = sName;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
 	}
 
 	public Set<String> getRegClasses() {
@@ -64,7 +46,7 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [sId=" + sId + ", sName=" + sName + ", address=" + address + "]";
+		return "Student [sId=" + sId + ", sName=" + name + ", address=" + address + "]";
 	}
 
 	// sId의 동일여부에 따른 구현
