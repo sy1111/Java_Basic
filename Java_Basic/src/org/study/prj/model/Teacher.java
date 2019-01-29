@@ -1,6 +1,7 @@
 package org.study.prj.model;
 
-public class Teacher extends SchoolPerson {
+public class Teacher extends SchoolPerson
+	implements Registrable {
 
 	private static long tUid = 1L;
 	
@@ -17,7 +18,7 @@ public class Teacher extends SchoolPerson {
 	}
 	
 	public Teacher(String name) {
-		//super(name);
+		//super();
 		t_id = generateTId();
 		//this.name = name;
 	}
@@ -61,6 +62,17 @@ public class Teacher extends SchoolPerson {
 	@Override
 	public String toString() {
 		return "Teacher [t_id=" + t_id + ", t_name=" + name + ", address=" + address + "]";
+	}
+
+	@Override
+	public String getType() {
+		return "Teacher";
+	}
+
+	@Override
+	public boolean register() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 }

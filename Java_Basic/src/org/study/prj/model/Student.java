@@ -3,7 +3,8 @@ package org.study.prj.model;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Student extends SchoolPerson {
+public class Student extends SchoolPerson 
+		implements Registrable {
 	// 학생아이디: 
 	// unique한 아이디 발급
 	private static int uId = 1;
@@ -86,6 +87,17 @@ public class Student extends SchoolPerson {
 	
 	public boolean registerClass(String cId) {
 		return regClasses.add(cId);
+	}
+
+	@Override
+	public String getType() {
+		return "Student";
+	}
+
+	@Override
+	public boolean register() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 	

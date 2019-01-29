@@ -1,6 +1,6 @@
 package org.study.prj.model;
 
-public class SchoolPerson {
+public abstract class SchoolPerson {
 
 	String name;
 	String address;
@@ -10,6 +10,9 @@ public class SchoolPerson {
 	public SchoolPerson(String name) {
 		this.name = name;
 	}
+	
+	// 하는 일이 무엇인지 리턴
+	public abstract String getType();
 
 	public String getName() {
 		return name;
