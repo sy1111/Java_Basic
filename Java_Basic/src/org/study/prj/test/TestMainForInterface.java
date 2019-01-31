@@ -2,6 +2,7 @@ package org.study.prj.test;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -30,14 +31,23 @@ public class TestMainForInterface {
 		// 정렬
 		List<Student> studentList = 
 				new ArrayList<> (students);
-		Collections.sort(studentList);
+		//Collections.sort(studentList);
+		StudentComparator sComp = new StudentComparator();
+		
+		studentList.sort(sComp);
 		
 		System.out.println("Sorted List -----");
 		System.out.println(studentList);
-		
-		
-		
-		
+	
 	}
 
+}
+
+class StudentComparator implements Comparator<Student> {
+
+	@Override
+	public int compare(Student o1, Student o2) {
+		return o1.getName().compareTo(o2.getName());
+	}
+	
 }

@@ -3,7 +3,8 @@ package org.study.prj.model;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Student extends SchoolPerson implements Registrable, Comparable {
+public class Student extends SchoolPerson 
+	implements Registrable, Comparable {
 	// 학생아이디:
 	// unique한 아이디 발급
 	private static int uId = 1;
@@ -98,6 +99,7 @@ public class Student extends SchoolPerson implements Registrable, Comparable {
 		return false;
 	}
 
+	
 	@Override
 	public int compareTo(Object o) {
 		/*
@@ -125,7 +127,7 @@ public class Student extends SchoolPerson implements Registrable, Comparable {
 		 */
 		
 		Student tempStudent = (Student)o;
-		return name.compareTo(tempStudent.getName());
+		return name.compareTo(tempStudent.getName()) * -1;
 	}
 
 }
