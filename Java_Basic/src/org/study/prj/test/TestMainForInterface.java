@@ -32,9 +32,18 @@ public class TestMainForInterface {
 		List<Student> studentList = 
 				new ArrayList<> (students);
 		//Collections.sort(studentList);
-		StudentComparator sComp = new StudentComparator();
-		
-		studentList.sort(sComp);
+		StudentComparatorByName sComp = new StudentComparatorByName();
+		StudentComparatorBySid sComp2 = new StudentComparatorBySid();
+		studentList.sort(new Comparator<Student>() {
+
+			@Override
+			public int compare(Student o1, Student o2) {
+				int firstId = Integer.parseInt(o1.getsId().substring(5));
+				int secondId = Integer.parseInt(o2.getsId().substring(5));
+				return (firstId - secondId);
+			}
+			
+		});
 		
 		System.out.println("Sorted List -----");
 		System.out.println(studentList);
@@ -43,7 +52,7 @@ public class TestMainForInterface {
 
 }
 
-class StudentComparator implements Comparator<Student> {
+class StudentComparatorByName implements Comparator<Student> {
 
 	@Override
 	public int compare(Student o1, Student o2) {
@@ -51,3 +60,25 @@ class StudentComparator implements Comparator<Student> {
 	}
 	
 }
+
+class StudentComparatorBySid implements Comparator<Student> {
+
+	@Override
+	public int compare(Student o1, Student o2) {
+		int firstId = Integer.parseInt(o1.getsId().substring(5));
+		int secondId = Integer.parseInt(o2.getsId().substring(5));
+		return (firstId - secondId);
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
